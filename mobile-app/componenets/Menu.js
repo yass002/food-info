@@ -1,29 +1,13 @@
 import React from 'react';
 import { View, Text, StyleSheet, FlatList, Image, Button } from 'react-native';
 
-const Restaurents = [
-    {
-        id: '1',
-        name: 'Dar el jeld',
-        description: 'Enjoy an exceptional culinary experience with refined dishes crafted by expert chefs in an elegant setting.',
-        image: 'https://img.freepik.com/photos-gratuite/restaurant-interieur_1127-3394.jpg',
-    },
-    {
-        id: '2',
-        name: 'KFC',
-        description: 'Savor simple and delicious cuisine in a warm atmosphere, perfect for moments with friends or family.',
-        image: 'https://lh3.googleusercontent.com/p/AF1QipP_U90BZ8IY_doKGu_lop0H1Wplwq1nc2u90wEg=s1360-w1360-h1020',
-    },
-    {
-        id: '3',
-        name: 'ELHAJ',
-        description: 'Immerse yourself in a unique Kafteji  with creative decor and dishes inspired by global flavors.',
-        image: 'https://tunisie.co/uploads/images/content/fatoum-081220-1.jpg',
-    },
-    // Add more pizzas as needed
-];
+
+import { useSelector } from 'react-redux';
+
+
 
 const Menu = () => {
+    const restaurants = useSelector((state) => state.rest.restaurants);
     const renderItem = ({ item }) => (
         <View style={styles.card}>
             <Image source={{ uri: item.image }} style={styles.image} />
@@ -35,7 +19,7 @@ const Menu = () => {
 
     return (
         <FlatList
-            data={Restaurents}
+            data={restaurants}
             renderItem={renderItem}
             keyExtractor={item => item.id}
             contentContainerStyle={styles.container}

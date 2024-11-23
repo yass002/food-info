@@ -10,6 +10,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { me } from "./store/auth";
 import { AsyncStorage } from "@react-native-async-storage/async-storage";
 import { useEffect } from "react";
+import Maps from "./componenets/Maps";
 
 export default function Main() {
   // const [user, setUser] = useState(true);
@@ -36,6 +37,7 @@ useEffect(() => {
         >
           <Stack.Screen name="onBoarding" component={Onboarding} />
           <Stack.Screen name="login" component={Login} />
+          <Stack.Screen name="Maps" component={Maps} />
           <Stack.Screen name="sign-up" component={SignUp} />
         </Stack.Navigator>
       ) : (
